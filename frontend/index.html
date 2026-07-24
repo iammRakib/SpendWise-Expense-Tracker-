@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | SpendWise</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-icon">
+                    ₹
+                </div>
+
+                <span>
+                    SpendWise
+                </span>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="index.html"
+                    class="nav-link active"
+                >
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="expenses.html"
+                    class="nav-link"
+                >
+                    <span>₹</span>
+                    Expenses
+                </a>
+
+
+                <a
+                    href="analytics.html"
+                    class="nav-link"
+                >
+                    <span>▥</span>
+                    Analytics
+                </a>
+
+            </nav>
+
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Here's your spending overview.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome-section">
+
+                <h2>
+                    Welcome back,
+                    <span id="userName">
+                        User
+                    </span>
+                    👋
+                </h2>
+
+                <p>
+                    Keep track of your spending and stay
+                    in control of your finances.
+                </p>
+
+            </section>
+
+
+            <!-- STATS -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Expenses
+                        </p>
+
+                        <h3 id="totalExpenses">
+                            ₹0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        #
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Transactions
+                        </p>
+
+                        <h3 id="transactionCount">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <p>
+                            This Month
+                        </p>
+
+                        <h3 id="monthlyExpenses">
+                            ₹0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ADD EXPENSE -->
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Add New Expense
+                        </h2>
+
+                        <p>
+                            Record your latest spending.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    id="expenseForm"
+                    class="expense-form"
+                >
+
+                    <div class="input-group">
+
+                        <label for="expenseTitle">
+                            Expense
+                        </label>
+
+                        <input
+                            type="text"
+                            id="expenseTitle"
+                            placeholder="e.g. Lunch"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="expenseAmount">
+                            Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="expenseAmount"
+                            placeholder="₹0"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="expenseCategory">
+                            Category
+                        </label>
+
+                        <select id="expenseCategory" required>
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Food">
+                                Food
+                            </option>
+
+                            <option value="Transport">
+                                Transport
+                            </option>
+
+                            <option value="Shopping">
+                                Shopping
+                            </option>
+
+                            <option value="Bills">
+                                Bills
+                            </option>
+
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+
+                            <option value="Health">
+                                Health
+                            </option>
+
+                            <option value="Education">
+                                Education
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="expenseDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="expenseDate"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Expense
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- RECENT EXPENSES -->
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Expenses
+                        </h2>
+
+                        <p>
+                            Your latest transactions.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="expenses.html"
+                        class="view-all"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div
+                    id="recentExpenses"
+                    class="expense-list"
+                >
+
+                    <p class="empty-state">
+                        No expenses yet.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

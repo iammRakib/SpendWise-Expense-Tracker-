@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analytics | SpendWise</title>
+
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+
+    <!-- Chart.js -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <div class="app-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+
+            <div class="sidebar-brand">
+
+                <div class="brand-icon">
+                    ₹
+                </div>
+
+                <span>
+                    SpendWise
+                </span>
+
+            </div>
+
+
+
+            <nav class="sidebar-nav">
+
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+
+                    <span>⌂</span>
+
+                    Dashboard
+
+                </a>
+
+
+
+                <a
+                    href="expenses.html"
+                    class="nav-link"
+                >
+
+                    <span>₹</span>
+
+                    Expenses
+
+                </a>
+
+
+
+                <a
+                    href="analytics.html"
+                    class="nav-link active"
+                >
+
+                    <span>▥</span>
+
+                    Analytics
+
+                </a>
+
+
+            </nav>
+
+
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <span>↪</span>
+
+                Logout
+
+            </button>
+
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                >
+
+                    ☰
+
+                </button>
+
+
+
+                <div>
+
+                    <h1>
+                        Analytics
+                    </h1>
+
+                    <p>
+                        Understand your spending habits.
+                    </p>
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =========================
+                 SUMMARY CARDS
+            ========================== -->
+
+            <section class="stats-grid">
+
+
+                <!-- TOTAL SPENDING -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon">
+                        ₹
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            Total Spending
+                        </p>
+
+                        <h3 id="totalSpending">
+                            ₹0.00
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- TRANSACTIONS -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon">
+                        #
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            Transactions
+                        </p>
+
+                        <h3 id="transactionCount">
+                            0
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MONTHLY SPENDING -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            This Month
+                        </p>
+
+                        <h3 id="monthlySpending">
+                            ₹0.00
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 INSIGHT CARD
+            ========================== -->
+
+            <section class="dashboard-section">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <h2>
+                            Spending Insight
+                        </h2>
+
+                        <p>
+                            Your biggest spending category.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div
+                    class="welcome-section"
+                    style="margin-bottom: 0;"
+                >
+
+
+                    <h2 id="topCategory">
+                        No data available
+                    </h2>
+
+
+                    <p id="topCategoryMessage">
+                        Add some expenses to see your
+                        spending insights.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 CHARTS
+            ========================== -->
+
+            <section class="analytics-grid">
+
+
+                <!-- CATEGORY CHART -->
+
+                <div class="dashboard-section">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>
+                                Spending by Category
+                            </h2>
+
+                            <p>
+                                See where your money goes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="categoryChart"
+                        ></canvas>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MONTHLY CHART -->
+
+                <div class="dashboard-section">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>
+                                Monthly Spending
+                            </h2>
+
+                            <p>
+                                Track your spending over time.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="monthlyChart"
+                        ></canvas>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script
+        src="js/analytics.js"
+    ></script>
+
+
+</body>
+
+</html>
